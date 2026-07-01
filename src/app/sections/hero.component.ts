@@ -16,9 +16,9 @@ import { HERO } from '../data/site';
       ></div>
 
       <div
-        class="relative mx-auto grid w-full max-w-[1180px] grid-cols-1 items-center gap-10 px-6 pt-14 pb-16 md:px-10 md:pt-20 md:pb-24 lg:grid-cols-12 lg:gap-12"
+        class="relative mx-auto w-full max-w-[1180px] px-6 pt-14 pb-16 md:px-10 md:pt-20 md:pb-24"
       >
-        <div class="lg:col-span-6">
+        <div class="max-w-[52rem]">
           <p
             class="enter flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.24em] text-accent"
             style="--enter-delay:0ms"
@@ -63,36 +63,6 @@ import { HERO } from '../data/site';
             </a>
           </div>
         </div>
-
-        <!-- proof of work: a real live project inside the corner-bracket frame -->
-        <figure class="enter lg:col-span-6" style="--enter-delay:200ms">
-          <div class="bp-grid relative rounded-lg border border-line bg-surface/50 p-3 sm:p-4">
-            <!-- corner registration ticks -->
-            <span class="absolute left-3 top-3 h-3.5 w-px bg-line-strong"></span>
-            <span class="absolute left-3 top-3 h-px w-3.5 bg-line-strong"></span>
-            <span class="absolute right-3 top-3 h-3.5 w-px bg-line-strong"></span>
-            <span class="absolute right-3 top-3 h-px w-3.5 bg-line-strong"></span>
-            <span class="absolute bottom-3 left-3 h-3.5 w-px bg-line-strong"></span>
-            <span class="absolute bottom-3 left-3 h-px w-3.5 bg-line-strong"></span>
-            <span class="absolute bottom-3 right-3 h-3.5 w-px bg-line-strong"></span>
-            <span class="absolute bottom-3 right-3 h-px w-3.5 bg-line-strong"></span>
-
-            <div class="overflow-hidden rounded-md border border-line-strong">
-              <img
-                [src]="hero.proofImage"
-                [alt]="hero.proofAlt"
-                width="1280"
-                height="800"
-                fetchpriority="high"
-                class="aspect-[16/10] w-full object-cover object-top"
-              />
-            </div>
-          </div>
-          <figcaption class="mt-3 flex items-center gap-2 font-mono text-[12px] text-muted">
-            <span class="h-px w-4 bg-line-strong"></span>
-            {{ hero.proofCaption }}
-          </figcaption>
-        </figure>
       </div>
     </section>
   `,
