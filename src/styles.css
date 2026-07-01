@@ -1,0 +1,157 @@
+/* Self-hosted fonts (no <link> to Google Fonts) */
+@import '@fontsource-variable/geist/wght.css';
+@import '@fontsource-variable/geist/wght-italic.css';
+@import '@fontsource-variable/geist-mono/wght.css';
+
+@import 'tailwindcss';
+
+/* ----------------------------------------------------------------------------
+   THEME LOCK - dark only. Single accent. One tight, sharp-leaning radius scale.
+   Palette is fixed by brief; do not introduce a second accent anywhere.
+---------------------------------------------------------------------------- */
+@theme {
+  --color-base: #0b0d10; /* off-black page */
+  --color-surface: #14171c; /* elevated surface */
+  --color-surface-2: #1a1e25; /* one step up, same family */
+  --color-line: #232932; /* hairline border */
+  --color-line-strong: #2e353f; /* hairline on hover / emphasis */
+  --color-ink: #e6e8ec; /* primary text */
+  --color-muted: #8b919c; /* secondary text */
+  --color-accent: #4c7dff; /* single accent, electric blue, AA on dark */
+  --color-accent-ink: #0b0d10; /* text that sits on a solid accent fill */
+  --color-danger: #e5677b; /* semantic form-validation state only, not a brand accent */
+
+  --font-sans: 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Geist Mono Variable', ui-monospace, 'SFMono-Regular', monospace;
+
+  /* sharp-leaning radius system: nothing rounder than 8px */
+  --radius-xs: 2px;
+  --radius-sm: 3px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-xl: 8px;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-base);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--color-accent) 32%, transparent);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 1px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   Signature: faint blueprint grid. 1px lines, very low opacity. A texture,
+   never a fake dashboard. Two densities so it reads as engineered paper.
+---------------------------------------------------------------------------- */
+@utility bp-grid {
+  background-image:
+    linear-gradient(to right, rgba(230, 232, 236, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(230, 232, 236, 0.035) 1px, transparent 1px);
+  background-size: 34px 34px;
+  background-position: center top;
+}
+
+@utility bp-grid-fine {
+  background-image:
+    linear-gradient(to right, rgba(230, 232, 236, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(230, 232, 236, 0.02) 1px, transparent 1px);
+  background-size: 11px 11px;
+}
+
+/* Hairline tick used to anchor section labels to the grid */
+@utility rule-tick {
+  background-image: linear-gradient(to right, var(--color-line), transparent);
+}
+
+/* ----------------------------------------------------------------------------
+   Motion: scroll reveal driven by IntersectionObserver (appReveal directive).
+   No window scroll listeners. Fully collapses under reduced-motion.
+---------------------------------------------------------------------------- */
+@layer base {
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+      opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+  }
+
+  [data-reveal='visible'] {
+    opacity: 1;
+    transform: none;
+    will-change: auto;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-reveal],
+    [data-reveal='visible'] {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+}
+
+/* Hero entrance - one choreographed load moment, CSS only, reduced-motion safe */
+@layer base {
+  @keyframes rise-in {
+    from {
+      opacity: 0;
+      transform: translateY(22px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .enter {
+    opacity: 0;
+    animation: rise-in 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: var(--enter-delay, 0ms);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .enter {
+      opacity: 1;
+      animation: none;
+    }
+  }
+}
+
+/* Duotone treatment for the headshot: shadows fall to base, highlights to
+   accent. Applied via the SVG filter rendered once in the app root. */
+@utility duotone {
+  filter: url(#duotone-accent) contrast(1.02);
+}
