@@ -20,10 +20,10 @@ import { HERO } from '../data/site';
       >
         <div class="max-w-[52rem]">
           <p
-            class="enter flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-accent sm:tracking-[0.24em]"
+            class="enter flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.24em] text-accent"
             style="--enter-delay:0ms"
           >
-            <span class="h-px w-7 shrink-0 bg-accent"></span>
+            <span class="h-px w-7 bg-accent"></span>
             {{ hero.eyebrow }}
           </p>
 

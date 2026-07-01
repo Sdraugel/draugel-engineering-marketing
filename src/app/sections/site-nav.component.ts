@@ -4,8 +4,9 @@ import { NAV_LINKS, PRIMARY_CTA } from '../data/site';
 @Component({
   selector: 'app-site-nav',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { class: 'sticky top-0 z-50 block' },
   template: `
-    <header class="fixed inset-x-0 top-0 z-50 border-b border-line bg-base/95">
+    <header class="border-b border-line bg-base/95">
       <nav
         class="mx-auto flex h-16 max-w-[1180px] items-center justify-between px-6 md:px-10"
         aria-label="Primary"
