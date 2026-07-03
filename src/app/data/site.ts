@@ -18,7 +18,7 @@ export const IDENTITY = {
   person: 'Steven Draugel',
   role: 'Founder and Principal Full-Stack Engineer',
   location: 'Charleston, South Carolina',
-  email: 'sdraugel@gmail.com',
+  email: 'steven@draugelengineering.com',
   linkedin: { label: 'linkedin.com/in/stevendraugel', href: 'https://www.linkedin.com/in/stevendraugel' } as LinkRef,
   github: { label: 'github.com/Sdraugel', href: 'https://github.com/Sdraugel' } as LinkRef,
   resume: 'steven-draugel-resume.pdf',
@@ -42,9 +42,6 @@ export const HERO = {
     'Draugel Engineering gives you principal-level platform and AI engineering, without adding headcount.',
   primary: { label: PRIMARY_CTA.label, href: PRIMARY_CTA.href } as LinkRef,
   secondary: { label: 'View selected work', href: '#work' } as LinkRef,
-  proofImage: 'work-moms-for-change.png',
-  proofAlt: 'Moms for Change, a civic platform designed and built by Draugel Engineering in Angular and Tailwind.',
-  proofCaption: 'Moms for Change, built in Angular and Tailwind.',
 } as const;
 
 export interface Credential {

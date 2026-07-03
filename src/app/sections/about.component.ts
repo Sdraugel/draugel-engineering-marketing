@@ -20,7 +20,7 @@ import { ABOUT } from '../data/site';
             ></div>
             <div class="relative aspect-square overflow-hidden rounded-lg border border-line-strong bg-surface">
               <img
-                src="headshot.jpg"
+                src="headshot.png"
                 alt="Portrait of Steven Draugel, founder of Draugel Engineering."
                 width="400"
                 height="400"

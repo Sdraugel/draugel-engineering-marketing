@@ -4,17 +4,17 @@
  * UI renders in a clearly stubbed, not-yet-wired state.
  */
 
-// TODO wire scheduler: paste your scheduling link (Cal.com, SavvyCal, Calendly,
-// etc.). While empty, the "Book a 30-minute call" button renders but stays inert
-// (no dead outbound link); the contact form and direct email are the fallback.
-export const SCHEDULER_URL = '';
+// Scheduling link (Calendly). When set, the "Book a 30-minute call" button opens
+// it in a new tab and the "coming soon" helper disappears.
+export const SCHEDULER_URL = 'https://calendly.com/steven-draugelengineering';
 
-// TODO wire form endpoint: point this at a Cloudflare Pages Function
-// (recommended), e.g. '/api/contact', that forwards the message to email.
-// While empty, postContact() is a no-op that resolves so the success state can
-// show, and that success state tells the visitor to email directly as a
-// fallback. Do not use a raw HTML form post.
-export const FORM_ENDPOINT = '';
+// Contact form endpoint: the Cloudflare Pages Function at functions/api/contact.ts.
+// It emails submissions to steven@draugelengineering.com once RESEND_API_KEY is
+// set in the Pages project (see that file's header for the one-time setup). Until
+// then it returns an error and the form falls back to "email Steven directly".
+// Under `ng serve` this route does not exist, so the form also shows that
+// fallback locally; run `npx wrangler pages dev` to exercise the Function.
+export const FORM_ENDPOINT = '/api/contact';
 
 export interface ContactPayload {
   name: string;
@@ -29,8 +29,8 @@ export interface ContactPayload {
  */
 export async function postContact(payload: ContactPayload): Promise<void> {
   if (!FORM_ENDPOINT) {
-    // Stub: not wired yet. Resolve so the success state (with the email
-    // fallback) is shown. TODO wire form endpoint above.
+    // No endpoint configured: resolve so the success state (with the email
+    // fallback) is shown.
     return;
   }
   const res = await fetch(FORM_ENDPOINT, {
@@ -38,7 +38,16 @@ export async function postContact(payload: ContactPayload): Promise<void> {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload),
   });
-  if (!res.ok) {
+  // Require an explicit { ok: true } JSON body so a dev server returning the SPA
+  // shell (HTTP 200 HTML) cannot masquerade as a successful send.
+  let ok = res.ok;
+  try {
+    const data = (await res.json()) as { ok?: boolean };
+    ok = ok && data?.ok === true;
+  } catch {
+    ok = false;
+  }
+  if (!ok) {
     throw new Error(`Contact endpoint returned ${res.status}`);
   }
 }
