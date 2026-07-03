@@ -44,16 +44,6 @@ import { ABOUT } from '../data/site';
               <p>{{ para }}</p>
             }
           </div>
-
-          <!-- compact background strip: prior roles, most recent employer unnamed -->
-          <dl class="mt-8 flex flex-col gap-x-8 gap-y-3 border-t border-line pt-6 sm:flex-row sm:flex-wrap">
-            @for (item of about.background; track item.org) {
-              <div class="flex items-baseline gap-2">
-                <dt class="text-[13.5px] text-ink">{{ item.org }}</dt>
-                <dd class="font-mono text-[11.5px] text-muted">{{ item.note }}</dd>
-              </div>
-            }
-          </dl>
         </div>
       </div>
     </section>

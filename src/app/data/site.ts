@@ -39,7 +39,7 @@ export const HERO = {
   headlineTail: ' platforms,',
   headlineLine2: 'engineered to last.',
   subtext:
-    'Draugel Engineering gives you principal-level platform and AI engineering, without adding headcount.',
+    'Draugel Engineering brings more than a decade of platform and AI engineering to your team, without adding headcount.',
   primary: { label: PRIMARY_CTA.label, href: PRIMARY_CTA.href } as LinkRef,
   secondary: { label: 'View selected work', href: '#work' } as LinkRef,
 } as const;
@@ -54,21 +54,21 @@ export interface Credential {
 export const CREDENTIALS: Credential[] = [
   {
     icon: 'briefcase',
-    label: 'Practice',
-    value: 'Founder, principal engineer',
-    note: '10-plus years architecting AI-driven, cloud-native platforms.',
+    label: 'Direct access',
+    value: 'Straight to a seasoned engineer',
+    note: 'No account managers or handoffs. You work with the engineer building it.',
   },
   {
     icon: 'shield-lock',
     label: 'Clearance',
-    value: 'Active Top Secret',
-    note: 'Cleared for federal and contracting-adjacent work.',
+    value: 'Cleared for sensitive work',
+    note: 'Active Top Secret clearance. Defense, federal, and regulated clients engage without clearance delays.',
   },
   {
     icon: 'medal',
-    label: 'Service',
-    value: 'U.S. military veteran',
-    note: 'Security-minded delivery, end to end.',
+    label: 'Veteran-owned',
+    value: 'Dependable, security-minded delivery',
+    note: 'A U.S. military veteran firm, eligible for veteran-owned contracting preferences.',
   },
 ];
 
@@ -92,7 +92,7 @@ export const SERVICES: Service[] = [
   {
     icon: 'code',
     title: 'Build and staff augmentation',
-    body: 'Principal-level engineering that plugs into your team and ships.',
+    body: 'A seasoned engineer who plugs into your team and ships.',
   },
   {
     icon: 'list-search',
@@ -174,31 +174,15 @@ export const BUILDS: Build[] = [
     context: 'Blackbaud Labs',
     body: 'Designed an AI facial-recognition billing system, applying computer vision to automate reconciliation.',
   },
-  {
-    title: 'Journey to a Black Hole',
-    context: 'College of Charleston, NSF-funded',
-    body: 'An NSF-funded iOS app with a novel real-time gravitational-lensing engine.',
-  },
 ];
-
-export interface BackgroundOrg {
-  org: string;
-  note: string;
-}
 
 export const ABOUT = {
   name: IDENTITY.person,
   role: IDENTITY.role,
   paragraphs: [
-    'Steven Draugel is a TS-cleared principal full-stack engineer and the founder of Draugel Engineering, with 10-plus years architecting AI-driven, cloud-native platforms across .NET, Angular, React, and Azure.',
-    'A U.S. military veteran with an active Top Secret clearance, he has mentored five engineers who were all hired, and holds a B.S. in Computer Science from the College of Charleston with minors in Physics and Mathematics.',
+    'Steven Draugel is a principal full-stack engineer and the founder of Draugel Engineering, with more than a decade of experience architecting cloud-native and AI-driven platforms that have generated eight figures in business value. A U.S. military veteran with an active Top Secret clearance, he has spent his career leading R&D teams and owning platform architecture end to end for federal agencies and national firms, from early system design through production and scale.',
+    'Beyond client work, Steven builds and ships his own products, giving him a founder\'s perspective on the tradeoffs between speed, cost, and engineering quality. He holds a B.S. in Computer Science with minors in Physics and Mathematics.',
   ],
-  background: [
-    { org: 'A senior-living analytics company', note: 'Principal Engineer' },
-    { org: 'Booz Allen Hamilton', note: 'Lead Full-Stack Engineer' },
-    { org: 'Blackbaud', note: 'Staff Software Engineer' },
-    { org: 'Michelin', note: 'Mobile and Web Developer' },
-  ] as BackgroundOrg[],
 } as const;
 
 export const SKILLS = {
@@ -222,6 +206,29 @@ export const SKILLS = {
 
 export const CONTACT = {
   headline: 'Book a call, or send a note.',
-  body: 'Tell me about the platform you are building. I reply within a couple of days.',
+  body: 'Tell us about the platform you are building. We reply within a couple of days.',
+  engagement: 'Project-based or retainer engagements, scoped after a free intro call.',
   emailFallback: IDENTITY.email,
 } as const;
+
+export interface Testimonial {
+  quote: string;
+  name: string;
+  org: string;
+}
+
+// Real client testimonials, shown between Selected Work and Notable Builds.
+export const TESTIMONIALS: Testimonial[] = [
+  {
+    quote:
+      'Working with Steven was seamless. He understood exactly what I needed for my campaign website and delivered a site I\'m proud to share with voters. Responsive, thoughtful, and genuinely talented at what he does.',
+    name: 'Lindsey Draugel',
+    org: 'Berkeley County District 2 Candidate',
+  },
+  {
+    quote:
+      'Steven created a polished, easy to navigate site from nothing but a brief description. He handled everything, including the design, build, hosting, and it was ready in no time at all. Berkeley County parents will actually find us now, and know how to get involved.',
+    name: 'Sarah Kalil',
+    org: 'President and Co-Founder of Moms for Change',
+  },
+];

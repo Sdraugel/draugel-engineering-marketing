@@ -41,8 +41,11 @@ interface ContactRow {
                 <app-icon name="calendar" [size]="17" />
                 {{ cta.label }}
               </button>
+              <p class="mt-3 max-w-[42ch] font-mono text-[11.5px] leading-relaxed text-muted">
+                {{ contact.engagement }}
+              </p>
               @if (!schedulerWired) {
-                <p class="mt-2.5 font-mono text-[11.5px] leading-relaxed text-muted">
+                <p class="mt-2 font-mono text-[11.5px] leading-relaxed text-muted">
                   Scheduling link coming soon. Use the form, or email below.
                 </p>
               }
@@ -81,7 +84,7 @@ interface ContactRow {
                 </div>
                 <h3 class="mt-4 text-xl font-medium text-ink">Thanks for reaching out.</h3>
                 <p class="mt-2 max-w-[52ch] text-[15px] leading-relaxed text-muted">
-                  I reply within a couple of days. To be sure it reaches me, you can also email
+                  We reply within a couple of days. To be sure it reaches us, you can also email
                   <a class="text-accent underline underline-offset-2" [href]="mailtoHref">{{ contact.emailFallback }}</a>
                   directly.
                 </p>
@@ -204,7 +207,6 @@ interface ContactRow {
         >
           <span>© 2026 {{ firm }}</span>
           <span>{{ location }}</span>
-          <span>Built in Angular and Tailwind</span>
         </div>
       </footer>
     </section>

@@ -12,9 +12,9 @@ import { SERVICES } from '../data/site';
       <div class="mx-auto max-w-[1180px] px-6 md:px-10">
         <div class="max-w-[54ch]" appReveal>
           <span class="block h-px w-9 bg-accent"></span>
-          <h2 class="mt-6 text-4xl font-medium tracking-[-0.02em] text-ink md:text-5xl">What you can hire me for.</h2>
+          <h2 class="mt-6 text-4xl font-medium tracking-[-0.02em] text-ink md:text-5xl">What we build.</h2>
           <p class="mt-5 text-[1.05rem] leading-relaxed text-muted">
-            Four ways to put principal-level engineering on your roadmap, scoped to what you actually need.
+            Four ways to put deep engineering experience on your roadmap, scoped to what you actually need.
           </p>
         </div>
 

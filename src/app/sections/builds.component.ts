@@ -13,7 +13,7 @@ import { BUILDS } from '../data/site';
           <span class="block h-px w-9 bg-accent"></span>
           <h2 class="mt-6 text-4xl font-medium tracking-[-0.02em] text-ink md:text-5xl">Notable builds.</h2>
           <p class="mt-5 text-[1rem] leading-relaxed text-muted">
-            Platforms and products architected at principal level, described by what they delivered. Some are cleared
+            Platforms and products built over more than a decade, described by what they delivered. Some are cleared
             or proprietary, so the work is named, not the client.
           </p>
         </div>

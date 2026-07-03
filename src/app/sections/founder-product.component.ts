@@ -10,9 +10,15 @@ import { FOUNDER_PRODUCT } from '../data/site';
   template: `
     <section id="product" class="scroll-mt-20 pb-16 md:pb-24">
       <div class="mx-auto max-w-[1180px] px-6 md:px-10">
-        <div class="flex items-center gap-4" appReveal>
-          <span class="font-mono text-[12.5px] text-ink">Founder product</span>
-          <span class="h-px flex-1 bg-line"></span>
+        <div appReveal>
+          <div class="flex items-center gap-4">
+            <span class="font-mono text-[12.5px] text-ink">Founder product</span>
+            <span class="h-px flex-1 bg-line"></span>
+          </div>
+          <p class="mt-4 max-w-[62ch] text-[1rem] leading-relaxed text-muted">
+            The firm's own product, engineered end to end. Proof we build production-grade systems, not just
+            features.
+          </p>
         </div>
 
         <article class="mt-6 overflow-hidden rounded-lg border border-line bg-surface/40" appReveal="60">
@@ -29,7 +35,7 @@ import { FOUNDER_PRODUCT } from '../data/site';
             <div class="flex flex-wrap items-center gap-3">
               <span
                 class="rounded-sm border border-accent/45 px-2 py-0.5 font-mono text-[11px] tracking-[0.02em] text-accent"
-                >Coming soon</span
+                >Early access</span
               >
               <span class="font-mono text-[12px] text-muted">{{ product.org }}</span>
             </div>
