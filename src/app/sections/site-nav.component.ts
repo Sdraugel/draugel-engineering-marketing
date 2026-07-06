@@ -11,12 +11,14 @@ import { NAV_LINKS, PRIMARY_CTA } from '../data/site';
         class="mx-auto flex h-16 max-w-[1180px] items-center justify-between px-6 md:px-10"
         aria-label="Primary"
       >
-        <a href="#top" class="group flex items-center gap-2.5">
-          <span
-            class="grid h-[18px] w-[18px] place-items-center rounded-xs border border-line-strong transition-colors group-hover:border-accent"
-          >
-            <span class="h-[6px] w-[6px] rounded-[1px] bg-accent"></span>
-          </span>
+        <a href="#top" class="group flex items-center gap-2.5" aria-label="Draugel Engineering — home">
+          <img
+            src="logo-mark.png"
+            alt=""
+            width="371"
+            height="464"
+            class="h-7 w-auto transition-transform group-hover:scale-105"
+          />
           <span class="text-[15px] tracking-tight">
             <span class="font-medium text-ink">Draugel</span>
             <span class="text-muted">Engineering</span>
