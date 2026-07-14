@@ -222,6 +222,11 @@ export interface NaicsCode {
   title: string;
 }
 
+export interface Competency {
+  title: string;
+  blurb: string;
+}
+
 export interface PastPerformance {
   title: string;
   detail: string;
@@ -246,12 +251,33 @@ export const GOVERNMENT = {
     { code: '541519', title: 'Other Computer Related Services' },
     { code: '541715', title: 'R&D in Physical, Engineering, and Life Sciences' },
   ] as NaicsCode[],
+  // The six competency domains, mirroring the capability statement PDF.
   competencies: [
-    'AI and LLM integration for production systems',
-    'Cloud-native platform architecture on Azure and AWS',
-    'Decision-support, CPIC, and analytics platforms',
-    'Technical due diligence and architecture review',
-  ],
+    {
+      title: 'Systems architecture and technical leadership',
+      blurb: 'Greenfield platform design, service and message-driven architecture, API design, and legacy modernization.',
+    },
+    {
+      title: 'AI and LLM systems engineering',
+      blurb: 'Multi-provider LLM gateways, retrieval and structured-output pipelines, and agentic tool-use workflows.',
+    },
+    {
+      title: 'Cloud, DevOps, and infrastructure',
+      blurb: 'Azure, AWS, and Cloudflare. Containers, infrastructure-as-code, CI/CD, and observability.',
+    },
+    {
+      title: 'Full-stack software development',
+      blurb: 'Web, mobile, and API development, schema-driven UI systems, and SaaS platform delivery.',
+    },
+    {
+      title: 'Data engineering',
+      blurb: 'Relational and NoSQL platforms, schema design, ETL, and analytical pipelines.',
+    },
+    {
+      title: 'Embedded and IoT',
+      blurb: 'Microcontroller and firmware development, device integration, and connected-device telemetry.',
+    },
+  ] as Competency[],
   // Federal-relevant past performance, drawn from Notable builds.
   pastPerformance: [
     { title: 'Decision Assistant and Folio CPIC platforms', detail: 'Serving 17-plus federal agencies' },

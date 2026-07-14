@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { IconComponent } from '../shared/icon.component';
 import { RevealDirective } from '../shared/reveal.directive';
-import { GOVERNMENT } from '../data/site';
+import { GOVERNMENT, IDENTITY } from '../data/site';
 
 /**
  * Government and public sector capability statement, rendered as an engineered
@@ -69,26 +69,13 @@ import { GOVERNMENT } from '../data/site';
             <p class="mt-6 max-w-[46ch] font-mono text-[11.5px] leading-relaxed text-muted">{{ gov.profileNote }}</p>
           </div>
 
-          <!-- core competencies + federal past performance -->
+          <!-- federal past performance -->
           <div class="bg-surface/25 p-7 md:p-8">
             <div class="flex items-center gap-2.5 text-accent">
-              <app-icon name="sitemap" [size]="18" />
-              <h3 class="font-mono text-[12px] tracking-[0.04em] text-muted">Core competencies</h3>
-            </div>
-            <ul class="mt-6 space-y-3">
-              @for (item of competencies; track item) {
-                <li class="flex items-start gap-3 text-[14px] leading-relaxed text-ink">
-                  <span class="mt-[0.5em] h-1.5 w-1.5 shrink-0 bg-accent" aria-hidden="true"></span>
-                  {{ item }}
-                </li>
-              }
-            </ul>
-
-            <div class="mt-8 flex items-center gap-2.5 text-accent">
               <app-icon name="circle-check" [size]="18" />
               <h3 class="font-mono text-[12px] tracking-[0.04em] text-muted">Federal past performance</h3>
             </div>
-            <ul class="mt-5 space-y-4">
+            <ul class="mt-6 space-y-4">
               @for (item of pastPerformance; track item.title) {
                 <li class="border-l-2 border-accent pl-3">
                   <p class="text-[14px] leading-snug text-ink">{{ item.title }}</p>
@@ -96,6 +83,24 @@ import { GOVERNMENT } from '../data/site';
                 </li>
               }
             </ul>
+          </div>
+        </div>
+
+        <!-- core competencies: the six capability domains, mirroring the PDF -->
+        <div class="mt-4" appReveal="100">
+          <div class="flex items-center gap-2.5 text-accent">
+            <app-icon name="sitemap" [size]="18" />
+            <h3 class="font-mono text-[12px] tracking-[0.04em] text-muted">Core competencies</h3>
+          </div>
+          <div
+            class="mt-5 grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-2 lg:grid-cols-3"
+          >
+            @for (item of competencies; track item.title) {
+              <div class="bg-surface/25 p-5">
+                <p class="text-[14px] font-medium tracking-[-0.01em] text-ink">{{ item.title }}</p>
+                <p class="mt-1.5 text-[12.5px] leading-snug text-muted">{{ item.blurb }}</p>
+              </div>
+            }
           </div>
         </div>
 
@@ -116,6 +121,21 @@ import { GOVERNMENT } from '../data/site';
             }
           </div>
         </div>
+
+        <!-- point of contact: Charleston location + direct email -->
+        <div
+          class="mt-8 flex flex-col gap-3 border-t border-line pt-6 font-mono text-[12.5px] text-muted sm:flex-row sm:items-center sm:gap-8"
+          appReveal="140"
+        >
+          <span class="flex items-center gap-2">
+            <app-icon name="map-pin" [size]="15" class="text-accent" />
+            {{ location }}
+          </span>
+          <a class="flex items-center gap-2 transition-colors hover:text-accent" [href]="mailtoHref">
+            <app-icon name="mail" [size]="15" class="text-accent" />
+            {{ email }}
+          </a>
+        </div>
       </div>
     </section>
   `,
@@ -128,4 +148,7 @@ export class CapabilitiesComponent {
   protected readonly naics = GOVERNMENT.naics;
   protected readonly statement = GOVERNMENT.capabilityStatement;
   protected readonly downloadName = 'Draugel-Engineering-Capability-Statement.pdf';
+  protected readonly location = IDENTITY.location;
+  protected readonly email = IDENTITY.email;
+  protected readonly mailtoHref = `mailto:${IDENTITY.email}`;
 }
