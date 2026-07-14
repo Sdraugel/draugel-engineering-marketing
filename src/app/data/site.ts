@@ -28,6 +28,7 @@ export const NAV_LINKS: LinkRef[] = [
   { label: 'Services', href: '#services' },
   { label: 'Work', href: '#work' },
   { label: 'About', href: '#about' },
+  { label: 'Capabilities', href: '#capabilities' },
 ];
 
 // The single primary call to action for the whole page.
@@ -61,8 +62,8 @@ export const CREDENTIALS: Credential[] = [
   {
     icon: 'shield-lock',
     label: 'Clearance',
-    value: 'Cleared for sensitive work',
-    note: 'Active Top Secret clearance. Defense, federal, and regulated clients engage without clearance delays.',
+    value: 'Top Secret, reinstatement-eligible',
+    note: 'Held a Top Secret clearance and eligible for reinstatement, so cleared work can resume without a new full investigation.',
   },
   {
     icon: 'medal',
@@ -180,7 +181,7 @@ export const ABOUT = {
   name: IDENTITY.person,
   role: IDENTITY.role,
   paragraphs: [
-    'Steven Draugel is a principal full-stack engineer and the founder of Draugel Engineering, with more than a decade of experience architecting cloud-native and AI-driven platforms that have generated eight figures in business value. A U.S. military veteran with an active Top Secret clearance, he has spent his career leading R&D teams and owning platform architecture end to end for federal agencies and national firms, from early system design through production and scale.',
+    'Steven Draugel is a principal full-stack engineer and the founder of Draugel Engineering, with more than a decade of experience architecting cloud-native and AI-driven platforms that have generated eight figures in business value. A U.S. military veteran who has held a Top Secret clearance and is eligible for reinstatement, he has spent his career leading R&D teams and owning platform architecture end to end for federal agencies and national firms, from early system design through production and scale.',
     'Beyond client work, Steven builds and ships his own products, giving him a founder\'s perspective on the tradeoffs between speed, cost, and engineering quality. He holds a B.S. in Computer Science with minors in Physics and Mathematics.',
   ],
 } as const;
@@ -202,6 +203,64 @@ export const SKILLS = {
     'CI/CD',
     'AI / LLM integration',
   ],
+} as const;
+
+// ---------------------------------------------------------------------------
+// Government and public sector. A capability-statement fact sheet for federal
+// BD, contracting officers, and primes. Every claim here is verifiable and kept
+// consistent with the rest of the site; UEI and CAGE are honestly marked as
+// pending until SAM.gov registration completes. No em-dashes or en-dashes.
+// ---------------------------------------------------------------------------
+export interface SpecRow {
+  label: string;
+  value: string;
+  note?: string;
+}
+
+export interface NaicsCode {
+  code: string;
+  title: string;
+}
+
+export interface PastPerformance {
+  title: string;
+  detail: string;
+}
+
+export const GOVERNMENT = {
+  headline: 'Government and public sector.',
+  intro:
+    'A veteran-owned firm built for government work: principal-level delivery, deep federal platform experience, and a founder with a reinstatement-eligible Top Secret clearance. Registrations and certifications are in progress, tracked below.',
+  // Company data spec sheet. UEI and CAGE stay "pending assignment" until SAM.
+  profile: [
+    { label: 'Business type', value: 'SDVOSB', note: 'Service-disabled veteran-owned small business' },
+    { label: 'Certification', value: 'SBA VetCert', note: 'Verification in process' },
+    { label: 'Security clearance', value: 'Top Secret', note: 'Reinstatement-eligible' },
+    { label: 'UEI', value: 'Pending assignment' },
+    { label: 'CAGE code', value: 'Pending assignment' },
+  ] as SpecRow[],
+  profileNote: 'UEI and CAGE will be published here once SAM.gov registration completes.',
+  naics: [
+    { code: '541511', title: 'Custom Computer Programming Services' },
+    { code: '541512', title: 'Computer Systems Design Services' },
+    { code: '541519', title: 'Other Computer Related Services' },
+    { code: '541715', title: 'R&D in Physical, Engineering, and Life Sciences' },
+  ] as NaicsCode[],
+  competencies: [
+    'AI and LLM integration for production systems',
+    'Cloud-native platform architecture on Azure and AWS',
+    'Decision-support, CPIC, and analytics platforms',
+    'Technical due diligence and architecture review',
+  ],
+  // Federal-relevant past performance, drawn from Notable builds.
+  pastPerformance: [
+    { title: 'Decision Assistant and Folio CPIC platforms', detail: 'Serving 17-plus federal agencies' },
+    { title: 'IT Collect ACRAPI', detail: 'Secured $500K in GSA funding' },
+  ] as PastPerformance[],
+  capabilityStatement: {
+    label: 'Download capability statement',
+    href: 'draugel-engineering-capability-statement.pdf',
+  } as LinkRef,
 } as const;
 
 export const CONTACT = {

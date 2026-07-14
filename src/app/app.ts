@@ -9,6 +9,7 @@ import { TestimonialComponent } from './sections/testimonial.component';
 import { BuildsComponent } from './sections/builds.component';
 import { AboutComponent } from './sections/about.component';
 import { SkillsComponent } from './sections/skills.component';
+import { CapabilitiesComponent } from './sections/capabilities.component';
 import { ContactComponent } from './sections/contact.component';
 
 @Component({
@@ -25,6 +26,7 @@ import { ContactComponent } from './sections/contact.component';
     BuildsComponent,
     AboutComponent,
     SkillsComponent,
+    CapabilitiesComponent,
     ContactComponent,
   ],
   templateUrl: './app.html',
