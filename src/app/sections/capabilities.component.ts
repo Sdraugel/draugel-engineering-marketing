@@ -38,13 +38,12 @@ import { GOVERNMENT, IDENTITY } from '../data/site';
           </a>
         </div>
 
-        <!-- fact sheet: company data | competencies + past performance -->
-        <div
-          class="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-line bg-line md:grid-cols-2"
-          appReveal="80"
-        >
+        <!-- fact sheet: company data | federal past performance, as two
+             independent top-aligned cards so unequal content lengths don't
+             force a stretched, half-empty panel -->
+        <div class="mt-12 grid grid-cols-1 gap-4 md:grid-cols-2 md:items-start" appReveal="80">
           <!-- company data spec sheet -->
-          <div class="bg-surface/25 p-7 md:p-8">
+          <div class="rounded-lg border border-line bg-surface/40 p-7 md:p-8">
             <div class="flex items-center gap-2.5 text-accent">
               <app-icon name="building-bank" [size]="18" />
               <h3 class="font-mono text-[12px] tracking-[0.04em] text-muted">Company data</h3>
@@ -70,7 +69,7 @@ import { GOVERNMENT, IDENTITY } from '../data/site';
           </div>
 
           <!-- federal past performance -->
-          <div class="bg-surface/25 p-7 md:p-8">
+          <div class="rounded-lg border border-line bg-surface/40 p-7 md:p-8">
             <div class="flex items-center gap-2.5 text-accent">
               <app-icon name="circle-check" [size]="18" />
               <h3 class="font-mono text-[12px] tracking-[0.04em] text-muted">Federal past performance</h3>
