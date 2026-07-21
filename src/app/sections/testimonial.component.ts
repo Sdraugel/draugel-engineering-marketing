@@ -19,9 +19,16 @@ import { TESTIMONIALS } from '../data/site';
             <h2 class="mt-6 text-4xl font-medium tracking-[-0.02em] text-ink md:text-5xl">What clients say.</h2>
           </div>
 
-          <div class="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 md:items-start">
+          <div
+            class="mt-10 grid grid-cols-1 gap-4 md:items-start"
+            [class.md:grid-cols-2]="testimonials.length > 1"
+          >
             @for (item of testimonials; track item.name) {
-              <figure class="rounded-lg border border-line bg-surface/40 p-7 md:p-8" [appReveal]="$index * 80">
+              <figure
+                class="rounded-lg border border-line bg-surface/40 p-7 md:p-8"
+                [class.max-w-xl]="testimonials.length === 1"
+                [appReveal]="$index * 80"
+              >
                 <blockquote class="text-[1.05rem] italic leading-relaxed text-ink">“{{ item.quote }}”</blockquote>
                 <figcaption class="mt-6 flex flex-wrap items-baseline gap-x-3 gap-y-1 border-t border-line pt-4">
                   <span class="font-mono text-[13px] text-ink">{{ item.name }}</span>

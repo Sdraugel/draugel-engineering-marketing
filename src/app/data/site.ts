@@ -28,19 +28,24 @@ export const NAV_LINKS: LinkRef[] = [
   { label: 'Services', href: '#services' },
   { label: 'Work', href: '#work' },
   { label: 'About', href: '#about' },
-  { label: 'Capabilities', href: '#capabilities' },
 ];
 
 // The single primary call to action for the whole page.
 export const PRIMARY_CTA = { label: 'Book a 30-minute call', navLabel: 'Book a call', href: '#contact' } as const;
 
+// Alternate full headline options (swap into accentWord / headlineTail /
+// headlineLine2 below if a different lead is wanted; keep the two-line,
+// accent-word split shown in hero.component.ts):
+// 1. "Get AI features into production, and the web platform around them."
+// 2. "Ship AI to production. Build the platform it lives in."
+// 3. "AI features in production, on web platforms built to last."
 export const HERO = {
   eyebrow: 'Draugel Engineering, LLC',
-  accentWord: 'AI-driven',
-  headlineTail: ' platforms,',
-  headlineLine2: 'engineered to last.',
+  accentWord: 'AI features',
+  headlineTail: ' in production.',
+  headlineLine2: 'Web platforms built around them.',
   subtext:
-    'Draugel Engineering brings more than a decade of platform and AI engineering to your team, without adding headcount.',
+    'Draugel Engineering gets your AI features into production and builds the full-stack web platforms they run on, without adding headcount.',
   primary: { label: PRIMARY_CTA.label, href: PRIMARY_CTA.href } as LinkRef,
   secondary: { label: 'View selected work', href: '#work' } as LinkRef,
 } as const;
@@ -60,16 +65,16 @@ export const CREDENTIALS: Credential[] = [
     note: 'No account managers or handoffs. You work with the engineer building it.',
   },
   {
-    icon: 'shield-lock',
-    label: 'Clearance',
-    value: 'Top Secret, reinstatement-eligible',
-    note: 'Held a Top Secret clearance and eligible for reinstatement, so cleared work can resume without a new full investigation.',
-  },
-  {
     icon: 'medal',
     label: 'Veteran-owned',
     value: 'Dependable, security-minded delivery',
     note: 'A U.S. military veteran firm, eligible for veteran-owned contracting preferences.',
+  },
+  {
+    icon: 'shield-lock',
+    label: 'Clearance',
+    value: 'Top Secret, reinstatement-eligible',
+    note: 'Held a Top Secret clearance and eligible for reinstatement.',
   },
 ];
 
@@ -163,7 +168,7 @@ export const BUILDS: Build[] = [
   {
     title: 'AI-driven senior-living investment platform',
     context: 'Proptech and senior-living analytics',
-    body: 'Architected an AI-driven senior-living investment platform and a companion product, a multi-provider LLM gateway, and a schema-driven Angular UI system. Built the platforms behind two new revenue lines that drove the company to its first profitable year in five years, roughly $10M net.',
+    body: 'Drove the company to its first profitable year in five years, roughly $10M net, by architecting an AI-driven senior-living investment platform and a companion product, a multi-provider LLM gateway, and a schema-driven Angular UI system that powered two new revenue lines.',
   },
   {
     title: 'Decision-support and CPIC platforms for federal agencies',
@@ -304,12 +309,6 @@ export interface Testimonial {
 
 // Real client testimonials, shown between Selected Work and Notable Builds.
 export const TESTIMONIALS: Testimonial[] = [
-  {
-    quote:
-      'Working with Steven was seamless. He understood exactly what I needed for my campaign website and delivered a site I\'m proud to share with voters. Responsive, thoughtful, and genuinely talented at what he does.',
-    name: 'Lindsey Draugel',
-    org: 'Berkeley County District 2 Candidate',
-  },
   {
     quote:
       'Steven created a polished, easy to navigate site from nothing but a brief description. He handled everything, including the design, build, hosting, and it was ready in no time at all. Berkeley County parents will actually find us now, and know how to get involved.',
