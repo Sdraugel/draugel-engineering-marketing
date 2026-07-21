@@ -200,22 +200,12 @@ interface ContactRow {
           </div>
         </div>
       </div>
-
-      <footer class="border-t border-line">
-        <div
-          class="mx-auto flex max-w-[1180px] flex-col gap-3 px-6 py-7 font-mono text-[12px] text-muted md:flex-row md:items-center md:justify-between md:px-10"
-        >
-          <span>© 2026 {{ firm }}</span>
-          <span>{{ location }}</span>
-        </div>
-      </footer>
     </section>
   `,
 })
 export class ContactComponent {
   protected readonly contact = CONTACT;
   protected readonly cta = PRIMARY_CTA;
-  protected readonly firm = IDENTITY.firm;
   protected readonly location = IDENTITY.location;
   protected readonly mailtoHref = `mailto:${IDENTITY.email}`;
   protected readonly schedulerWired = SCHEDULER_URL.length > 0;
