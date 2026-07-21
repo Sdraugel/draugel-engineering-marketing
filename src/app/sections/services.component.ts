@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { IconComponent } from '../shared/icon.component';
 import { RevealDirective } from '../shared/reveal.directive';
 import { SERVICES } from '../data/site';
@@ -6,7 +7,7 @@ import { SERVICES } from '../data/site';
 @Component({
   selector: 'app-services',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [IconComponent, RevealDirective],
+  imports: [IconComponent, RevealDirective, RouterLink],
   template: `
     <section id="services" class="scroll-mt-20 py-16 md:py-24">
       <div class="mx-auto max-w-[1180px] px-6 md:px-10">
@@ -35,6 +36,11 @@ import { SERVICES } from '../data/site';
             </article>
           }
         </div>
+
+        <p class="mt-8 text-center font-mono text-[12.5px] text-muted" appReveal>
+          Working with a federal agency or prime?
+          <a routerLink="/government" class="transition-colors hover:text-accent">See government and public sector</a>.
+        </p>
       </div>
     </section>
   `,
