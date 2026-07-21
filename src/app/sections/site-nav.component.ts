@@ -61,13 +61,12 @@ export class SiteNavComponent {
   protected readonly cta = PRIMARY_CTA;
   protected readonly ctaFragment = PRIMARY_CTA.href.replace(/^#/, '');
 
-  // The nav data lives in site.ts as fragment hrefs (e.g. '#services'). Home
-  // sections stay fragment links; the capabilities entry now routes to the
-  // dedicated /government page instead of a homepage anchor.
-  protected readonly items: NavItem[] = NAV_LINKS.map((link) => {
-    const fragment = link.href.replace(/^#/, '');
-    return fragment === 'capabilities'
-      ? { label: link.label, routerLink: '/government' }
-      : { label: link.label, routerLink: '/', fragment };
-  });
+  // The nav data lives in site.ts as fragment hrefs (e.g. '#services'). All
+  // entries are home-page section anchors; the government route is linked
+  // only from the site footer.
+  protected readonly items: NavItem[] = NAV_LINKS.map((link) => ({
+    label: link.label,
+    routerLink: '/',
+    fragment: link.href.replace(/^#/, ''),
+  }));
 }
