@@ -33,13 +33,19 @@ export const NAV_LINKS: LinkRef[] = [
 // The single primary call to action for the whole page.
 export const PRIMARY_CTA = { label: 'Book a 30-minute call', navLabel: 'Book a call', href: '#contact' } as const;
 
+// Alternate full headline options (swap into accentWord / headlineTail /
+// headlineLine2 below if a different lead is wanted; keep the two-line,
+// accent-word split shown in hero.component.ts):
+// 1. "Get AI features into production, and the web platform around them."
+// 2. "Ship AI to production. Build the platform it lives in."
+// 3. "AI features in production, on web platforms built to last."
 export const HERO = {
   eyebrow: 'Draugel Engineering, LLC',
-  accentWord: 'AI-driven',
-  headlineTail: ' platforms,',
-  headlineLine2: 'engineered to last.',
+  accentWord: 'AI features',
+  headlineTail: ' in production.',
+  headlineLine2: 'Web platforms built around them.',
   subtext:
-    'Draugel Engineering brings more than a decade of platform and AI engineering to your team, without adding headcount.',
+    'Draugel Engineering gets your AI features into production and builds the full-stack web platforms they run on, without adding headcount.',
   primary: { label: PRIMARY_CTA.label, href: PRIMARY_CTA.href } as LinkRef,
   secondary: { label: 'View selected work', href: '#work' } as LinkRef,
 } as const;
