@@ -162,7 +162,7 @@ export const BUILDS: Build[] = [
   {
     title: 'AI-driven senior-living investment platform',
     context: 'Proptech and senior-living analytics',
-    body: 'Architected an AI-driven senior-living investment platform and a companion product, a multi-provider LLM gateway, and a schema-driven Angular UI system. Built the platforms behind two new revenue lines that drove the company to its first profitable year in five years, roughly $10M net.',
+    body: 'Drove the company to its first profitable year in five years, roughly $10M net, by architecting an AI-driven senior-living investment platform and a companion product, a multi-provider LLM gateway, and a schema-driven Angular UI system that powered two new revenue lines.',
   },
   {
     title: 'Decision-support and CPIC platforms for federal agencies',
