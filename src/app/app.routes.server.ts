@@ -1,10 +1,12 @@
 import { RenderMode, ServerRoute } from '@angular/ssr';
 
 /**
- * Server routes for prerendering. This is a single-page site with no client
- * router, so the one catch-all route is prerendered to static HTML at build
- * time. That prerendered index.html is what crawlers (and users) receive with
- * the full page body already in the markup.
+ * Server routes for prerendering. The client router (see app.routes.ts) has
+ * two real routes, '' and 'government', plus a wildcard that redirects unknown
+ * paths home. The '**' Prerender entry below enumerates and prerenders both
+ * named routes to static HTML at build time, so index.html and
+ * government/index.html are what crawlers (and users) receive with the full
+ * page body already in the markup.
  */
 export const serverRoutes: ServerRoute[] = [
   {

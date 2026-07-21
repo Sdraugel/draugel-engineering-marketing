@@ -20,4 +20,5 @@ export const routes: Routes = [
     component: GovernmentComponent,
     title: 'Government and Public Sector - Draugel Engineering, LLC',
   },
+  { path: '**', redirectTo: '' },
 ];
