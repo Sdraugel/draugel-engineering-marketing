@@ -305,12 +305,6 @@ export interface Testimonial {
 export const TESTIMONIALS: Testimonial[] = [
   {
     quote:
-      'Working with Steven was seamless. He understood exactly what I needed for my campaign website and delivered a site I\'m proud to share with voters. Responsive, thoughtful, and genuinely talented at what he does.',
-    name: 'Lindsey Draugel',
-    org: 'Berkeley County District 2 Candidate',
-  },
-  {
-    quote:
       'Steven created a polished, easy to navigate site from nothing but a brief description. He handled everything, including the design, build, hosting, and it was ready in no time at all. Berkeley County parents will actually find us now, and know how to get involved.',
     name: 'Sarah Kalil',
     org: 'President and Co-Founder of Moms for Change',
