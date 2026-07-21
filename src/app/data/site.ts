@@ -28,7 +28,6 @@ export const NAV_LINKS: LinkRef[] = [
   { label: 'Services', href: '#services' },
   { label: 'Work', href: '#work' },
   { label: 'About', href: '#about' },
-  { label: 'Capabilities', href: '#capabilities' },
 ];
 
 // The single primary call to action for the whole page.
@@ -60,16 +59,16 @@ export const CREDENTIALS: Credential[] = [
     note: 'No account managers or handoffs. You work with the engineer building it.',
   },
   {
-    icon: 'shield-lock',
-    label: 'Clearance',
-    value: 'Top Secret, reinstatement-eligible',
-    note: 'Held a Top Secret clearance and eligible for reinstatement, so cleared work can resume without a new full investigation.',
-  },
-  {
     icon: 'medal',
     label: 'Veteran-owned',
     value: 'Dependable, security-minded delivery',
     note: 'A U.S. military veteran firm, eligible for veteran-owned contracting preferences.',
+  },
+  {
+    icon: 'shield-lock',
+    label: 'Clearance',
+    value: 'Top Secret, reinstatement-eligible',
+    note: 'Held a Top Secret clearance and eligible for reinstatement.',
   },
 ];
 
