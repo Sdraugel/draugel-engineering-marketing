@@ -19,7 +19,7 @@ interface NavItem {
         class="mx-auto flex h-16 max-w-[1180px] items-center justify-between px-6 md:px-10"
         aria-label="Primary"
       >
-        <a routerLink="/" class="group flex items-center gap-2.5" aria-label="Draugel Engineering — home">
+        <a routerLink="/" class="group flex items-center gap-2.5" aria-label="Draugel Engineering, home">
           <img
             src="logo-mark.png"
             alt=""
